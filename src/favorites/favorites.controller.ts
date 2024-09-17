@@ -11,7 +11,7 @@ export class FavoritesController {
     return this.favoritesService.createShare(createShareLinkDto);
   }
 
-  @Get(':id')
+  @Get('share/:id')
   findShare(@Param('id') id: string) {
     return this.favoritesService.findShare(id);
   }
