@@ -6,8 +6,8 @@ import { ShareDb } from 'src/db/db';
 export class FavoritesService {
   private readonly db = new ShareDb();
 
-  createShare(createShareLinkDto: CreateShareLinkDto) {
-    const result = this.db.create(createShareLinkDto.favorites);
+  async createShare(createShareLinkDto: CreateShareLinkDto) {
+    const result = await this.db.create(createShareLinkDto.favorites);
     Logger.log(`Created new favorites share ${JSON.stringify(result)}`);
     return result;
   }

@@ -1,5 +1,8 @@
 import { nanoid } from 'nanoid';
 
+// just for testing don't use it in prod
+const sleep = (time: number) => new Promise((res) => setTimeout(res, time));
+
 export interface FavoritesShareModel {
   id: string;
   favorites: string[];
@@ -18,11 +21,13 @@ export class ShareDb {
     }
   }
 
-  public create(favorites: string[]): FavoritesShareModel {
+  public async create(favorites: string[]): Promise<FavoritesShareModel> {
     const newItem = {
       id: nanoid(),
       favorites,
     };
+
+    await sleep(2000); // ! just for testing
 
     this._storage.push(newItem);
 

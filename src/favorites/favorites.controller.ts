@@ -7,8 +7,8 @@ export class FavoritesController {
   constructor(private readonly favoritesService: FavoritesService) {}
 
   @Post('share')
-  createShare(@Body() createShareLinkDto: CreateShareLinkDto) {
-    return this.favoritesService.createShare(createShareLinkDto);
+  async createShare(@Body() createShareLinkDto: CreateShareLinkDto) {
+    return await this.favoritesService.createShare(createShareLinkDto);
   }
 
   @Get('share/:id')
