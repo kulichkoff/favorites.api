@@ -1,3 +1,5 @@
+import { nanoid } from 'nanoid';
+
 export interface FavoritesShareModel {
   id: string;
   favorites: string[];
@@ -18,7 +20,7 @@ export class ShareDb {
 
   public create(favorites: string[]): FavoritesShareModel {
     const newItem = {
-      id: 'some id',
+      id: nanoid(),
       favorites,
     };
 
